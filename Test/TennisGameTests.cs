@@ -1,21 +1,15 @@
 using TennisGameRefactoringSolution;
 
-namespace Test
-{
+namespace Test {
     [TestClass]
-    public class UnitTest1
-    {
-        public static void CheckAllScores(TennisGame game, int player1Score, int player2Score, String expectedScore)
-        {
+    public class TennisGameTests {
+        public static void CheckAllScores(TennisGame game, int player1Score, int player2Score, string expectedScore) {
             int highestScore = Math.Max(player1Score, player2Score);
-            for (int i = 0; i < highestScore; i++)
-            {
-                if (i < player1Score)
-                {
+            for (int i = 0; i < highestScore; i++) {
+                if (i < player1Score) {
                     game.PlayerOneScores();
                 }
-                if (i < player2Score)
-                {
+                if (i < player2Score) {
                     game.PlayerTwoScores();
                 }
             }
@@ -57,8 +51,7 @@ namespace Test
         [DataRow(16, 14, "Player1 wins")]
         [DataRow(14, 16, "Player2 wins")]
         public void CheckAllScoresTennisGame(int player1Score, int player2Score,
-            String expectedScore)
-        {
+            String expectedScore) {
             TennisGame game = new("Player1", "Player2");
             CheckAllScores(game, player1Score, player2Score, expectedScore);
         }
